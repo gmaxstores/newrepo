@@ -1,6 +1,179 @@
+@import url(https://fonts.googleapis.com/css2?family=Playfair+Display&family=Sometype+Mono&display=swap);
+
 /******* Change Box Model ***************/
 *,
 *:before,
 *:after {
   box-sizing: border-box;
+}
+
+/*Set a global font family*/
+* {
+  font-family: "Playfair-Display", Arial, Helvetica, sans-serif;
+}
+
+/*made header a flex display and added padding*/
+#top-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+/*changed the font weight and size of site name*/
+.siteName {
+  font-size: 2rem;
+  font-weight: bolder;
+  }
+
+  /*removed textdecoration on the site name and chnaged the color*/
+.siteName a {
+  text-decoration: none;
+  color: black;
+}
+
+/*added hover effect for site name*/
+.siteName a:hover {
+  color: rgb(8, 136, 187);
+}
+
+/*changed nav display to flex and added a background color and padding*/
+nav {
+  display: flex;
+  justify-content: center;
+  background-color: black;
+  width: 100%;
+  padding: 1rem;
+}
+
+/*removed textdecor from nav a elements*/
+nav a {
+  text-decoration: none;
+  color: white;
+  padding: 1rem;
+}
+
+/*added hover effect for the nav a element*/
+nav a:hover {
+  background-color: white;
+  color: black;
+}
+
+/*made the hero car name larger and bolder*/
+.hero-car-name {
+  font-weight: bolder;
+  font-size: 1.5rem;  
+}
+
+/*added border radius, padding , color etc to hero button*/
+.hero-car-button {
+  display: block;
+  background-color: lightskyblue;
+  text-decoration: none;
+  font-weight: bolder;
+  color: black;
+  padding: 1rem 1rem 1rem 1rem;
+  border-radius: 5px;
+  max-width: fit-content;
+}
+
+/*added hover effect for a couple of a elements*/
+.hero-car-button:hover, .upgrade-grid figcaption a:hover, #tools a:hover {
+  color: white;
+  background-color: black;
+}
+
+/*positioned the hero paragraph appropriately*/
+.hero-p {
+  position: absolute;
+  top: 18rem;
+  line-height: 2px;
+  color: rgb(57, 192, 245);
+  font-size: 1rem;
+  max-width: fit-content;
+  background-color: black;
+  padding: 1rem;
+  opacity: 0.8;
+}
+
+/*added padding to the container div of the body element as well as the footer element*/
+.container, footer {
+  padding: 1rem;
+}
+
+/*set dimensions of the hero image to enhance responsiveness*/
+.hero-image img {
+  width: 100%;
+  height: auto;
+}
+
+/*made the upgrades div responsive*/
+.upgrade-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  align-items: center;
+  justify-items: center;
+  gap: 10px;
+  max-width: 600px;
+}
+
+/*added some styling to the figure element and its contents*/
+.upgrade-grid figure {
+  text-align: center;
+  background-color: aqua;
+  width: 100%;
+  height: auto;
+}
+.upgrade-grid figure img {
+  display: block;
+  justify-self: center;
+  padding: 1rem;
+}
+.upgrade-grid figcaption {
+  background-color: white;
+}
+.delorean {
+  font-size: 1.5rem;
+}
+
+
+/*css for screen sizes from 600px*/
+@media screen and (min-width: 600px) {
+  body {
+    background-image: url(/images/site/checkerboard.jpg);
+    backdrop-filter: opacity(100%);
+    backdrop-filter: blur(50px);
+  }
+  .delorean {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .container, #top-header, footer {
+    margin: 0;
+    background-color: white;
+  }
+  footer, .container, nav, #top-header {
+    border-left: 5px solid rgb(8, 136, 187);
+    border-right: 5px solid rgb(8, 136, 187);
+  }
+  footer {
+    border-bottom: 5px solid rgb(8, 136, 187);
+  }
+  #top-header {
+    border-top: 5px solid rgb(8, 136, 187);
+  }
+  .delorean-upgrades {
+    grid-column: 1/2;
+
+  }
+  .delorean-reviews {
+    grid-column: 2/3;
+    grid-row: 1;
+  }
+  .hero-p {
+    font-size: 2rem;
+  }
+  .hero-car-name {
+    font-size: 2.5rem;
+  }
 }
