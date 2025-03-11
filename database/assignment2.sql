@@ -28,7 +28,7 @@ WHERE
 	inv_id = 10;
 
 
--- selected inv_model, make and classifcation_name for inventory that belonged to the sports category (TASK %))
+-- selected inv_model, make and classifcation_name for inventory that belonged to the sports category (TASK 5))
 SELECT
 	public.inventory.inv_make, public.inventory.inv_model, public.classification.classification_name
 FROM
