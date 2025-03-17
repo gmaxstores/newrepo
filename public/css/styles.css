@@ -37,12 +37,13 @@
 }
 
 /*changed nav display to flex and added a background color and padding*/
-nav {
+nav ul {
   display: flex;
   justify-content: center;
   background-color: black;
   width: 100%;
   padding: 1rem;
+  list-style: none;
 }
 
 /*removed textdecor from nav a elements*/
@@ -135,6 +136,27 @@ nav a:hover {
   font-size: 1.5rem;
 }
 
+/*added some styling to the vehicle inventory page*/
+#inv-display {
+  display: grid;
+  max-width: 700px;
+  margin: 0 auto;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 10px;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+  list-style: none;
+  padding: 1rem;
+}
+#inv-display img {
+  width: 100%;
+  height: auto;
+}
+.inv-heading-title {
+  text-align: center;
+}
+
 
 /*css for screen sizes from 600px*/
 @media screen and (min-width: 600px) {
@@ -142,6 +164,9 @@ nav a:hover {
     background-image: url(/images/site/checkerboard.jpg);
     backdrop-filter: opacity(100%);
     backdrop-filter: blur(50px);
+  }
+  nav ul {
+    font-size: 1.5rem;
   }
   .delorean {
     display: grid;
