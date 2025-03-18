@@ -1,0 +1,12 @@
+<%#Title heading of the page%>
+<% if (title) { %>
+    <h1 class="inv-heading-title"><%= title %></h1>
+    <% } else {
+        res.redirect('/')
+    } %>
+
+<%# message block %>
+<%# message %>
+
+<%# main content - grid view for the vehicles %>
+<%- vehicleDetail %>

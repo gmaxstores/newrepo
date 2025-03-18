@@ -47,10 +47,10 @@ nav ul {
 }
 
 /*removed textdecor from nav a elements*/
-nav a {
+nav li a {
   text-decoration: none;
-  color: white;
   padding: 1rem;
+  color: white;
 }
 
 /*added hover effect for the nav a element*/
@@ -157,6 +157,104 @@ nav a:hover {
   text-align: center;
 }
 
+/*added some styling to the vehicle detail page*/
+#vehicle-img-box img{
+  width: 100%;
+  height: auto;
+}
+#vehicle-img-box p {
+  background-color: black;
+  color: white;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-bottom: 0;
+  text-align: center;
+}
+#vehicle-img-box h2 {
+  text-align: center;
+}
+#vehicle-details-gridbox {
+  padding: 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: white;
+}
+.top-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr auto;
+  font-size: 1.5rem;
+  background-color: aqua;
+  padding: 1rem;
+  border-radius: 1rem;
+  align-items: center;
+  gap: 5px;
+}
+.mileage-p {
+  grid-column: 1/2;
+  grid-row: 1/3;
+  text-align: center;
+  border: 2px solid black;
+}
+.mileage {
+  background-color: white;
+}
+.mileage-value {
+  font-weight: bolder;
+}
+.haggle-p {
+  grid-column: 2/4;
+  grid-row: 1/2;
+}
+.price-tag {
+  grid-column: 4/5;
+  grid-row: 1/2;
+  font-weight: bolder;
+}
+.vat {
+  grid-column: 3/5;
+  grid-row: 2/3;
+  align-self: flex-start;
+}
+.superscript {
+  color: red;
+}
+.detail-span {
+  font-weight: bolder;
+}
+.detail-buttons button {
+  width: 100%;
+  display: block;
+  padding: 1rem;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+.detail-buttons button:hover {
+  background-color: black;
+  color: white;
+}
+.start-button {
+  background-color: green;
+  color: white;
+}
+.detail-button {
+  background-color: cadetblue;
+  color: black;
+}
+.bottom-section p {
+  font-weight: bold;
+}
+.contact-number {
+  color: green;
+}
+
+/*Centralised the error msg*/
+.error-msg {
+  text-align: center;
+}
+
 
 /*css for screen sizes from 600px*/
 @media screen and (min-width: 600px) {
@@ -200,5 +298,20 @@ nav a:hover {
   }
   .hero-car-name {
     font-size: 2.5rem;
+  }
+  #vehicle-details-gridbox {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    align-items: center;
+  }
+  .middle-section, .bottom-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    align-items: center;
+  }
+  .top-section {
+    margin-bottom: 1rem;
   }
 }

@@ -57,5 +57,60 @@ Util.buildClassificationGrid = async function(data){
     return grid
   }
 
+//Build the vehicle detail view html
+Util.buildVehicleDetailByInvId = async function (data) {
+    let vehicleDetail
+    if (data.length > 0) {
+        vehicleDetail = '<div id="vehicle-details-gridbox">'
+        vehicleDetail += '<div id="vehicle-img-box">'
+        vehicleDetail += '<p>This vehicle has passed inspection<br>by an ASE-certified technician</p>'
+        vehicleDetail += `<img src="${data[0].inv_image}" alt="Image of ${data[0].inv_make} ${data[0].inv_model} on CSE Motors" title="Image of ${data[0].inv_make} ${data[0].inv_model} on CSE Motors"/>`
+        vehicleDetail += `<h2>${data[0].inv_year} ${data[0].inv_make} ${data[0].inv_model}</h2>`
+        vehicleDetail += `<p>${data[0].inv_description}</p>`
+        vehicleDetail += '</div>'
+        vehicleDetail += '<div id="vehicle-details-box">'
+        vehicleDetail += `<h1>${data[0].inv_year} ${data[0].inv_make} ${data[0].inv_model}</h1>`
+        vehicleDetail += '<section class="top-section">'
+        vehicleDetail += `<p class="mileage-p"><span class="mileage">MILEAGE</span><br><span class="mileage-value">${new Intl.NumberFormat('en-US').format(data[0].inv_miles)}</span></p>`
+        vehicleDetail += '<p class="haggle-p">No-Haggle Price<span class="superscript">¹</span></p>'
+        vehicleDetail += `<p class="price-tag">$${new Intl.NumberFormat('en-US').format(data[0].inv_price)}</p>`
+        vehicleDetail += '<p class="vat">VAT exclusive</p>'
+        vehicleDetail += '</section>'
+        vehicleDetail += '<section class="middle-section">'
+        vehicleDetail += '<aside class="details">'
+        vehicleDetail += `<p><span class="detail-span">Mileage:</span> ${new Intl.NumberFormat('en-US').format(data[0].inv_miles)}</p>`
+        vehicleDetail += `<p><span class="detail-span">MAKE:</span> ${data[0].inv_make}</p>`
+        vehicleDetail += `<p><span class="detail-span">MODEL:</span> ${data[0].inv_model}</p>`
+        vehicleDetail += `<p><span class="detail-span">YEAR:</span> ${data[0].inv_year}</p>`
+        vehicleDetail += `<p><span class="detail-span">COLOR:</span> ${data[0].inv_color}</p>`
+        vehicleDetail += '</aside>'
+        vehicleDetail += '<aside class="detail-buttons">'
+        vehicleDetail += '<button class="start-button">START MY PURCHASE</button>'
+        vehicleDetail += '<button class="detail-button">CONTACT US</button>'
+        vehicleDetail += '<button class="detail-button">🚗SCHEDULE TEST DRIVE</button>'
+        vehicleDetail += '<button class="detail-button">APPLY FOR FINANCING</button>'
+        vehicleDetail += '</aside>'
+        vehicleDetail += '</section>'
+        vehicleDetail += '<section class="bottom-section">'
+        vehicleDetail += '<p>If you would like to insure this vehicle before purchase, kindly give us a call.</p>'
+        vehicleDetail += '<p>Call Us<br><span class="contact-number">+234 509 466 3455</span></p>'
+        vehicleDetail += '</scetion>'
+        vehicleDetail += '</div>'
+        vehicleDetail += '</div>'
+    } else {
+        vehicleDetail += '<p class="notice">Sorry, no matching vehicle could be found.</p>'
+    }
+    return vehicleDetail
+}
+
+
+
+
+/* ****************************************
+ * Middleware For Handling Errors
+ * Wrap other function in this for 
+ * General Error Handling
+ **************************************** */
+Util.handleErrors = fn => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next)
 
 module.exports = Util
