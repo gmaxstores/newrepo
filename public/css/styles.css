@@ -270,6 +270,9 @@ nav a:hover {
   nav li a {
     padding: 1rem;
   }
+  nav a:hover {
+    padding: 1rem;
+  }
   .delorean {
     display: grid;
     grid-template-columns: 1fr 1fr;
