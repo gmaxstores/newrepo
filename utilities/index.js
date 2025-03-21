@@ -64,7 +64,7 @@ Util.buildVehicleDetailByInvId = async function (data) {
         vehicleDetail = '<div id="vehicle-details-gridbox">'
         vehicleDetail += '<div id="vehicle-img-box">'
         vehicleDetail += '<p>This vehicle has passed inspection<br>by an ASE-certified technician</p>'
-        vehicleDetail += `<img src="${data[0].inv_image}" alt="Image of ${data[0].inv_make} ${data[0].inv_model} on CSE Motors" title="Image of ${data[0].inv_make} ${data[0].inv_model} on CSE Motors"/>`
+        vehicleDetail += `<img src="${data[0].inv_image}" alt="Image of ${data[0].inv_make} ${data[0].inv_model} on CSE Motors" title="Image of ${data[0].inv_make} ${data[0].inv_model} on CSE Motors">`
         vehicleDetail += `<h2>${data[0].inv_year} ${data[0].inv_make} ${data[0].inv_model}</h2>`
         vehicleDetail += `<p>${data[0].inv_description}</p>`
         vehicleDetail += '</div>'
@@ -94,7 +94,7 @@ Util.buildVehicleDetailByInvId = async function (data) {
         vehicleDetail += '<section class="bottom-section">'
         vehicleDetail += '<p>If you would like to insure this vehicle before purchase, kindly give us a call.</p>'
         vehicleDetail += '<p>Call Us<br><span class="contact-number">+234 509 466 3455</span></p>'
-        vehicleDetail += '</scetion>'
+        vehicleDetail += '</section>'
         vehicleDetail += '</div>'
         vehicleDetail += '</div>'
     } else {
