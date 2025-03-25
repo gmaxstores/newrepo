@@ -1,0 +1,55 @@
+<%#Title heading of the page%>
+<% if (title) { %>
+    <h1 class="inv-heading-title"><%= title %></h1>
+    <% } else {
+        res.redirect('/')
+    } %>
+
+<%# message block %>
+<%- messages() %>
+
+<%# error block %>
+<% if (errors) { %>
+    <ul class="notice">
+   <% errors.array().forEach(error => { %>
+     <li><%= error.msg %></li>
+  <%  }) %>
+   </ul>
+  <% } %>
+
+<%# registration form %>
+<div class="registration-form-div">
+    <form action="/account/register" method="post">
+        <label for="account_firstname">First name:
+            <input type="text" name="account_firstname" id="account_firstname" required value="<%= locals.account_firstname %>">
+        </label>
+        <label for="account_lastname">Last name:
+            <input type="text" name="account_lastname" id="account_lastname" required value="<%= locals.account_lastname %>">
+        </label>
+        <label for="account_email">Email:
+            <input type="email" name="account_email" id="account_email" required value="<%= locals.account_email %>">
+        </label>
+        <label for="account_password">Password:
+            <input title="Must contain minimum of the following: 12 characters in length, 1 capital letter, 1 number and 1 special character" type="password" name="account_password" id="account_password" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$">
+            <button class="reveal-password-btn">Show password</button>
+        </label>
+        <input type="submit" value="REGISTER" id="register">
+    </form>
+</div>
+
+
+<%#  js to reveal password %>
+<script>
+    const revealPasswordBtn = document.querySelector(".reveal-password-btn");
+    const passwordInput = document.querySelector("#account_password");
+    revealPasswordBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        revealPasswordBtn.textContent = "Hide password";
+    } else {
+        passwordInput.type = "password";
+        revealPasswordBtn.textContent = "Show password";
+    }
+    });
+</script>

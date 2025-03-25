@@ -1,0 +1,34 @@
+<%#Title heading of the page%>
+<% if (title) { %>
+    <h1 class="inv-heading-title"><%= title %></h1>
+    <% } else {
+        res.redirect('/')
+    } %>
+
+<%# message block %>
+<%- messages() %>
+
+<%# error block %>
+<% if (errors) { %>
+    <ul class="notice">
+   <% errors.array().forEach(error => { %>
+     <li><%= error.msg %></li>
+  <%  }) %>
+   </ul>
+  <% } %>
+
+
+
+<%# login form %>
+<div class="login-form-div">
+    <form action="/account/login" method="post">
+        <label for="account_email">Email:
+            <input type="email" name="account_email" id="account_email" required>
+        </label>
+        <label for="account_password">Password:
+            <input title="Must contain minimum of the following: 12 characters in length, 1 capital letter, 1 number and 1 special character" type="password" name="account_password" id="account_password" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$">
+        </label>
+        <input type="submit" value="LOGIN" id="login">
+        <P class="sign-up-p">No account? <a href="/account/register">Sign-up</a></P>
+    </form>
+</div>

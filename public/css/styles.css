@@ -255,6 +255,83 @@ nav a:hover {
   text-align: center;
 }
 
+/*Styled the flash message*/
+.notice {
+  color: red;
+  font-style: italic;
+  font-weight: bold;
+  list-style: none;
+  margin-top: 0;
+}
+
+/*Styled the login form*/
+.login-form-div, .registration-form-div {
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: aqua;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+.login-form-div form, .registration-form-div form {
+  padding: 1rem;
+  background-color: rgb(32, 32, 80);
+  border-radius: 0.5rem;
+}
+.login-form-div form label, .registration-form-div form label {
+  display: block;
+  font-weight: bold;
+  color: white;
+  padding: 0.5rem;
+}
+.login-form-div form input, .registration-form-div form input {
+  display: block;
+  width: 100%;
+  border-radius: 0.5rem;
+  font-size: 30px;
+}
+#login {
+  
+  align-self: center;
+  border-radius: 1rem;
+  color: black;
+  padding: 0.5rem;
+}
+
+#register {
+  max-width: 40%;
+  margin: 0 auto;
+  color: black;
+  font-size: 25px;
+  padding: 0.5rem;
+}
+.reveal-password-btn {
+  border-radius: 0.5rem;
+  margin-top: 0.2rem;
+}
+.reveal-password-btn:hover {
+  background-color: black;
+  color: white;
+}
+
+#login:hover, #register:hover {
+  background-color: black;
+  color: white;
+}
+.sign-up-p {
+  text-align: center;
+  font-size: 1.5rem;
+  color: white;
+}
+.sign-up-p a {
+  color: white;
+}
+.sign-up-p a:hover {
+  color: red;
+}
+
+/*add styling to management view*/
+
 
 /*css for screen sizes from 600px*/
 @media screen and (min-width: 600px) {
@@ -302,6 +379,7 @@ nav a:hover {
   }
   .hero-p {
     font-size: 2rem;
+    top: 19rem;
   }
   .hero-car-name {
     font-size: 2.5rem;
