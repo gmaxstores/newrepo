@@ -39,7 +39,7 @@
 /*changed nav display to flex and added a background color and padding*/
 nav ul {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   background-color: black;
   width: 100%;
   list-style: none;
@@ -264,8 +264,8 @@ nav a:hover {
   margin-top: 0;
 }
 
-/*Styled the login form*/
-.login-form-div, .registration-form-div {
+/*Styled the login form, registration form, inventory form and classification form*/
+.login-form-div, .registration-form-div, .add-classification-div, .add-inventory-div {
   max-width: 500px;
   margin: 0 auto;
   background-color: aqua;
@@ -273,26 +273,25 @@ nav a:hover {
   padding: 0.5rem;
   margin-bottom: 1rem;
 }
-.login-form-div form, .registration-form-div form {
+.login-form-div form, .registration-form-div form, .add-classification-div form, .add-inventory-div form {
   padding: 1rem;
   background-color: rgb(32, 32, 80);
   border-radius: 0.5rem;
 }
-.login-form-div form label, .registration-form-div form label {
+.login-form-div form label, .registration-form-div form label, .add-classification-div form label, .add-inventory-div form label {
   display: block;
   font-weight: bold;
   color: white;
   padding: 0.5rem;
+  font-size: 30px;
 }
-.login-form-div form input, .registration-form-div form input {
+.login-form-div form input, .registration-form-div form input, .add-classification-div form input, .add-inventory-div form input, #classificationList {
   display: block;
   width: 100%;
   border-radius: 0.5rem;
   font-size: 30px;
 }
-#login {
-  
-  align-self: center;
+#login, #add-classification-btn, #add-inventory-btn {
   border-radius: 1rem;
   color: black;
   padding: 0.5rem;
@@ -314,7 +313,7 @@ nav a:hover {
   color: white;
 }
 
-#login:hover, #register:hover {
+#login:hover, #register:hover, #add-classification-btn:hover, #add-inventory-btn:hover {
   background-color: black;
   color: white;
 }
@@ -331,6 +330,31 @@ nav a:hover {
 }
 
 /*add styling to management view*/
+.add-new-div {
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: aqua;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+.add-new-link {
+  display: block;
+  text-align: center;
+  font-size: 1.5rem;
+  border: 2px solid white;
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  font-style: italic;
+  margin: 0.5rem;
+}
+.add-new-link:hover {
+  background-color: white;
+  color: black;
+}
 
 
 /*css for screen sizes from 600px*/
@@ -339,10 +363,6 @@ nav a:hover {
     background-image: url(/images/site/checkerboard.jpg);
     backdrop-filter: opacity(100%);
     backdrop-filter: blur(50px);
-  }
-  nav ul {
-    font-size: 1.5rem;
-    justify-content: center;
   }
   nav li a {
     padding: 1rem;

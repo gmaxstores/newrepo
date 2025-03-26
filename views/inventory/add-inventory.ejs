@@ -1,0 +1,55 @@
+<%#Title heading of the page%>
+<% if (title) { %>
+    <h1 class="inv-heading-title"><%= title %></h1>
+    <% } else {
+        res.redirect('/')
+    } %>
+
+<%# message block %>
+<%- messages() %>
+
+<%# error block %>
+<% if (errors) { %>
+    <ul class="notice">
+   <% errors.array().forEach(error => { %>
+     <li><%= error.msg %></li>
+  <%  }) %>
+   </ul>
+  <% } %>
+
+<%# add classification form %>
+<div class="add-inventory-div">
+    <form action="/inv/add-inventory" method="post">
+        <label for="inv_make">Inventory make:
+            <input title="Only alphanumeric characters. Hyphens, underscores and spaces are allowed" type="text" value="<%= locals.inv_make %>" name="inv_make" id="inv_make" required>
+        </label>
+        <label for="inv_model">Inventory model:
+            <input title="Only alphanumeric characters. Hyphens, underscores and spaces are allowed" type="text" value="<%= locals.inv_model %>" name="inv_model" id="inv_model" required>
+        </label>
+        <label for="inv_year">Inventory year:
+            <input title="Must be a valid year containing just 4 digits within the allowed range" type="number" value="<%= locals.inv_year %>" name="inv_year" id="inv_year" required min="1600" max="2026" step="1">
+        </label>
+        <label for="inv_description">Inventory description:
+            <input title="short description of the vehicle" type="text" value="<%= locals.inv_description %>" name="inv_description" id="inv_description" required>
+        </label>
+        <label for="inv_image">Inventory image:
+            <input title="image file path" type="text" name="inv_image" id="inv_image" value="<%= locals.inv_image %>" required>
+        </label>
+        <label for="inv_thumbnail">Inventory thumbnail:
+            <input title="thumbnail file path" type="text" name="inv_thumbnail" id="inv_thumbnail" value="<%= locals.inv_thumbnail %>" required>
+        </label>
+        <label for="inv_price">Inventory price:
+            <input title="Must not contain decimal. Maximum amount is 999,999,999" type="number" value="<%= locals.inv_price %>" name="inv_price" id="inv_price" required step="1" min="0" max="999999999">
+        </label>
+        <label for="inv_miles">Inventory mileage:
+            <input title="Must not contain decimal" type="number" value="<%= locals.inv_miles %>" name="inv_miles" id="inv_miles" required step="1">
+        </label>
+        <label for="inv_color">Inventory color:
+            <input title="Color field is required and minimum character is 3 and maximumcharacter is 20" type="text" value="<%= locals.inv_color %>" name="inv_color" id="inv_color" required>
+        </label>
+        <label for="classification_id">
+            <%- classificationList %>
+        </label>
+        <input type="submit" value="ADD INVENTORY" id="add-inventory-btn">
+    </form>
+</div>
