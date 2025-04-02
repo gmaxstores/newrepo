@@ -356,6 +356,17 @@ nav a:hover {
   color: black;
 }
 
+/*styling for table in inventory management view*/
+#inventoryDisplay {
+  width: 100%;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+#inventoryDisplay, th, td {
+  border: 1px solid black;
+}
+
+
 
 /*css for screen sizes from 600px*/
 @media screen and (min-width: 600px) {

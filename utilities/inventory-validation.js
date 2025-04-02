@@ -63,13 +63,7 @@ validate.addInventoryRules = () => {
             .notEmpty()
             .isAlpha('en-US', {ignore: ' -_'})
             .isLength({min: 1})
-            .withMessage("An inventory model name without spaces and special characters is required.")
-            .custom(async (inv_model) => {
-                const inventoryExists = await invModel.checkExistingInventory(inv_model)
-                if (inventoryExists) {
-                    throw new Error("Inventory already exists.")
-                }
-            }),
+            .withMessage("An inventory model name without spaces and special characters is required."),
 
             // inv_year is required and must be a valid year contraing just 4 digits
             body("inv_year")
@@ -153,6 +147,27 @@ validate.checkInventoryData = async (req, res, next) => {
       return
     }
     next()
+}
+
+
+//check data from inventory modification form using inventory addition rules and redirect to edit inventory view
+validate.checkUpdateData = async (req, res, next) => {
+  const { inv_id, inv_make, inv_model, inv_year, inv_description, inv_price, inv_miles, inv_color, classification_id } = req.body
+  let errors = []
+  errors = validationResult(req)
+  if (!errors.isEmpty()) {
+    let nav = await utilities.getNav()
+    let classificationList = await utilities.buildClassificationList()
+    res.render("inventory/edit-inventory", {
+      errors,
+      title: `Edit ${inv_make} ${inv_model}`,
+      nav,
+      classificationList,
+      inv_id, inv_make, inv_model, inv_year, inv_description, inv_price, inv_miles, inv_color, classification_id,
+    })
+    return
+  }
+  next()
 }
 
 

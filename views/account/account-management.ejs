@@ -1,0 +1,21 @@
+<%#Title heading of the page%>
+<% if (title) { %>
+    <h1 class="inv-heading-title"><%= title %></h1>
+    <% } else {
+        res.redirect('/')
+    } %>
+
+<%# message block %>
+<%- messages() %>
+
+<%# error block %>
+<% if (errors) { %>
+    <ul class="notice">
+   <% errors.array().forEach(error => { %>
+     <li><%= error.msg %></li>
+  <%  }) %>
+   </ul>
+  <% } %>
+
+  <%# page content %>
+  <h2>You're logged in</h2>

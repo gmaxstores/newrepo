@@ -23,4 +23,13 @@
 <div class="add-new-div">
     <a class="add-new-link" href="/inv/add-classification/">Add new Classification</a>
     <a class="add-new-link" href="/inv/add-inventory/">Add new Inventory</a>
+    <h2>Manage Inventory</h2>
+    <p>Please select a classification to see its items</p>
+    <%- classificationList %>
+    <table id="inventoryDisplay"></table>
+    <noscript>JavaScript must be enabled to use this page.</noscript>
 </div>
+
+
+<%# link js file %>
+<script src="../../js/inventory.js"></script>
