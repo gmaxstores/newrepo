@@ -1,0 +1,39 @@
+<%#Title heading of the page%>
+<% if (title) { %>
+    <h1 class="inv-heading-title"><%= title %></h1>
+    <% } else {
+        res.redirect('/')
+    } %>
+
+<%# message block %>
+<%- messages() %>
+
+<%# error block %>
+<% if (errors) { %>
+    <ul class="notice">
+   <% errors.array().forEach(error => { %>
+     <li><%= error.msg %></li>
+  <%  }) %>
+   </ul>
+  <% } %>
+
+<%# delete confirmation form %>
+<div class="add-inventory-div">
+    <p>Confirm Deletion - The delete is permanent.</p>
+    <form id="updateForm" action="/inv/delete" method="post">
+        <label for="inv_make">Inventory make:
+            <input title="Only alphanumeric characters. Hyphens, underscores and spaces are allowed" type="text" value="<%= locals.inv_make %>" name="inv_make" id="inv_make" required readonly>
+        </label>
+        <label for="inv_model">Inventory model:
+            <input title="Only alphanumeric characters. Hyphens, underscores and spaces are allowed" type="text" value="<%= locals.inv_model %>" name="inv_model" id="inv_model" required readonly>
+        </label>
+        <label for="inv_year">Inventory year:
+            <input title="Must be a valid year containing just 4 digits within the allowed range" type="number" value="<%= locals.inv_year %>" name="inv_year" id="inv_year" required min="1600" max="2026" step="1" readonly>
+        </label>
+        <label for="inv_price">Inventory price:
+            <input title="Must not contain decimal. Maximum amount is 999,999,999" type="number" value="<%= locals.inv_price %>" name="inv_price" id="inv_price" required step="1" min="0" max="999999999" readonly>
+        </label>
+        <input type="submit" value="DELETE VEHICLE" id="add-inventory-btn">
+        <input type="hidden" name="inv_id" <% if(locals.inv_id) { %> value="<%= locals.inv_id %>" <% } %>>
+    </form>
+</div>
